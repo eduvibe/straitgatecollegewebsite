@@ -373,7 +373,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .membersContainer {
+    .members{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         width: 100%;
@@ -382,12 +382,13 @@ footer {
     .memberCard{
         width: 100%;
     }
+
 }
 
 
 
 @media (max-width: 480px) {
-    .membersContainer {
+    .members{
         display: block;
         gap: 8px;
         width: 100%;
