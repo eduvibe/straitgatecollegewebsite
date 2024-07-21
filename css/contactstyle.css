@@ -1,4 +1,10 @@
 /* Contact Info */
+.contact-info-mobile{
+    display: none;
+}
+
+
+
 .contact-info {
     display: flex;
     color: #b4030f;
@@ -70,11 +76,112 @@ span a {
     .contact-info span .material-icons {
         font-size: 12px;
     }
+
+    .contact-info {
+        position: fixed;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background-color: #333;
+        border-radius: 0 5px 5px 0;
+        overflow: hidden;
+        transition: width 0.3s;
+        width: 50px;
+    }
+    
+    .contact-info:hover {
+        width: 250px;
+    }
+    
+    .contact-item {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .contact-item:hover {
+        background-color: #444;
+    }
+    
+    .contact-text {
+        margin-left: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .contact-item a {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    .contact-item a:hover {
+        text-decoration: underline;
+    }
+    
+    .material-icons,
+    .fab {
+        font-size: 24px;
+    }
 }
 
 @media (max-width: 576px) {
     .contact-info {
 display: none;    
+}
+.contact-info-mobile {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background-color: #fff;
+    border-radius: 0 5px 5px 0;
+    overflow: hidden;
+    transition: width 0.3s;
+    width: 50px;
+    z-index: 100;
+}
+
+.contact-info-mobile:hover {
+    width: 50px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    color: #b4030f;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-item:hover {
+    background-color: #444;
+}
+
+.contact-text {
+    margin-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contact-item a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+.material-icons,
+.fab {
+    font-size: 24px;
 }
 
     .contact-info span .material-icons {
