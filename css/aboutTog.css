@@ -1,0 +1,27 @@
+#about h2{
+    margin-inline: 2rem;
+}
+#aboutcollege{
+    padding-inline: 2rem;
+    padding-bottom: 2rem;
+}
+
+#moreInfo {
+    display: none;
+    margin-top: 10px;
+}
+
+#toggleButton {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    color: #bc1010;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#toggleButton:hover {
+    color: #df1e1e;
+    transition: all 1s;
+}

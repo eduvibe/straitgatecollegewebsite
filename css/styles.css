@@ -1,0 +1,420 @@
+/* Main Styles */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Styles */
+header {
+    background-color: #b4030f;
+    color: #fff;
+    padding: 1px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+}
+
+nav .logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin-left: 3rem;
+}
+
+.nav-links li {
+    margin: 1px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    padding: 3px 7px;
+}
+
+.nav-links a.active {
+    border-bottom: 1px solid #fff;
+    border-radius: 5px;
+}
+
+.access {
+    margin-left: 3rem;
+}
+
+.access a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.access a:first-child {
+    margin-right: 1rem;
+    border: 1px solid #fff;
+    padding-inline: 7px;
+    padding-block: 2px;
+}
+
+.access a:last-child {
+    border-bottom: 1px solid #fff;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.menu-icon {
+    display: none;
+}
+
+/* Hero Section Styles */
+.hero {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    background-color: #000;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    opacity: 25%;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+.hero-text p {
+    margin-bottom: 2rem;
+}
+
+.hero-text .btn {
+    background-color: #f00;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.hero-text .btn:last-child {
+    background-color: transparent;
+    color: #fff;
+    margin-left: 2rem;
+    border: 1px solid #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Features Section Styles */
+.features {
+    position: relative;
+    display: flex;
+    bottom: 40px;
+    right: 0;
+    gap: 10px;
+    margin-left: 3rem;
+    align-self: center;
+    padding: 10px;
+}
+
+.feature {
+    text-align: center;
+    width: 30%;
+    background-color: #fff;
+    box-shadow: 2px 1px 1px 1px rgba(0, 0, 0, 0.4) inset;
+    border-radius: 4px;
+}
+
+.feature i {
+    font-size: 48px;
+    color: #f00;
+}
+
+.feature h3 {
+    margin: 3px 0;
+}
+
+.feature p {
+    color: #666;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Team Members Section Styles */
+.about-ourteam {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    width: 90%;
+    padding: 20px;
+}
+
+.member {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.member img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.member h4 {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.socials a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.socials a:hover {
+    color: #007bff;
+}
+
+.socials span {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: #333;
+}
+
+.socials span i {
+    margin-right: 5px;
+}
+
+/* Toggle Team Members Visibility Styles */
+.teacher-see-more,
+.managment-see-more {
+    margin-left: 2rem;
+    cursor: pointer;
+}
+
+
+.team-section {
+    text-align: center;
+    margin: 20px;
+}
+
+.team-section button {
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+
+.members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.member {
+    flex: 1 1 30%;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.member img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.socials a {
+    margin: 0 10px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.socials span {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+/* Responsive Design */
+
+/* Header and Navigation */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
+
+/* Hero Section */
+@media (max-width: 768px) {
+    .hero img {
+        opacity: 0.5;
+    }
+}
+
+/* Features Section */
+@media (max-width: 768px) {
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Team Members Section */
+@media (max-width: 768px) {
+    .about-ourteam {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 10px;
+    }
+
+    .member {
+        padding: 8px;
+    }
+
+    .member h4 {
+        font-size: 12px;
+    }
+
+    .socials a, .socials span {
+        font-size: 12px;
+    }
+
+    .socials {
+        gap: 5px;
+    }
+
+    .member {
+        flex: 1 1 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-ourteam {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 8px;
+    }
+
+    .member {
+        padding: 5px;
+    }
+
+    .member h4 {
+        font-size: 10px;
+    }
+
+    .socials a, .socials span {
+        font-size: 10px;
+    }
+
+    .socials {
+        gap: 3px;
+    }
+
+    .member {
+        flex: 1 1 100%;
+    }
+}
+
+/* Members Container Section */
+.membersContainer {
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    width: 100%;
+    padding: 10px;
+}
+.memberCard{
+    width: 100%;
+}
+#app{
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .membersContainer {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        width: 100%;
+        gap: 10px;
+    }
+    .memberCard{
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .membersContainer {
+        display: block;
+        gap: 8px;
+        width: 100%;
+    }
+    .memberCard{
+        width: 100%;
+    }
+}
