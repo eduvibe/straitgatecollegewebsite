@@ -1,19 +1,13 @@
 /* scripts.js */
 
-
-document.addEventListener('DOMContentLoaded', function() {
-    const menuIcon = document.querySelector('.menu-icon');
-    const closeIcon = document.querySelector('.close-icon');
+document.querySelector('.menu-icon').addEventListener('click', () => {
     const navLinks = document.querySelector('.nav-links');
-    const header = document.querySelector('header');
+    navLinks.classList.toggle('active');
+    const icon = document.querySelector('.menu-icon');
+    icon.classList.toggle('close');
+});
 
-    menuIcon.addEventListener('click', function() {
-        header.classList.add('nav-open');
-    });
 
-    closeIcon.addEventListener('click', function() {
-        header.classList.remove('nav-open');
-    });
 
     document.getElementById('toggleButton').addEventListener('click', function() {
         var moreInfo = document.getElementById('moreInfo');
@@ -25,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.textContent = 'Read More';
         }
     });
-});
+
 
 
 
