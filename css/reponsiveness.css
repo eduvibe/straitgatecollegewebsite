@@ -1,0 +1,149 @@
+
+/* Responsive Design */
+
+/* Header and Navigation */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .hero-text h1{
+        font-size: 10px;
+    }
+
+    .hero-text{
+        width: 90%;
+    }
+    .hero-text p{
+        font-size: 10px;
+        width: 100%;
+        text-align: justify;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Hero Section */
+@media (max-width: 768px) {
+    .hero img {
+        opacity: 0.5;
+    }
+}
+
+/* Features Section */
+@media (max-width: 768px) {
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+/* Team Members Section */
+    .about-ourteam {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 10px;
+    }
+
+    .member {
+        padding: 8px;
+    }
+
+    .member h4 {
+        font-size: 12px;
+    }
+
+    .socials a, .socials span {
+        font-size: 12px;
+    }
+
+    .socials {
+        gap: 5px;
+    }
+
+    .member {
+        flex: 1 1 45%;
+    }
+
+    .hero-text p {
+        margin-bottom: 1rem;
+    }
+    
+    .hero-text .btn {
+        background-color: #f00;
+        color: #fff;
+        padding: 5px 10px;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    
+    .hero-text .btn:last-child {
+        background-color: transparent;
+        color: #fff;
+        margin-left: 1rem;
+        border: 1px solid #fff;
+        padding: 5px 10px;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+}
+
+
+
+/* Members Container Section */
+.membersContainer {
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    width: 100%;
+    padding: 10px;
+}
+.memberCard{
+    width: 100%;
+}
+#app{
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .members{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        gap: 20px;
+    }
+    .memberCard{
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 579px) {
+
+.members{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    gap: 20px;
+}
+}
+
+
+@media (max-width: 480px) {
+    .members{
+        display: block;
+        gap: 8px;
+        width: 100%;
+    }
+    .memberCard{
+        width: 100%;
+    }
+}

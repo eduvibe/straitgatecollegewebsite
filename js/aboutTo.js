@@ -11,3 +11,13 @@ document.getElementById('toggleButton').addEventListener('click', function() {
         moreInfo.parentNode.insertBefore(button, moreInfo);
     }
 });
+
+
+//side navbar for mobile contact display phone number copy
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(function() {
+        alert('Phone number copied to clipboard');
+    }, function(err) {
+        console.error('Could not copy text: ', err);
+    });
+}
