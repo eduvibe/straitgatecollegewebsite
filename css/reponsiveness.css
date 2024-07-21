@@ -25,17 +25,12 @@
         text-align: justify;
         margin-bottom: 1rem;
     }
-}
-
-/* Hero Section */
-@media (max-width: 768px) {
-    .hero img {
+.hero img {
         opacity: 0.5;
     }
-}
 
 /* Features Section */
-@media (max-width: 768px) {
+
     .features {
         flex-direction: column;
         align-items: center;
@@ -94,31 +89,12 @@
         border-radius: 5px;
     }
 
-}
 
-
-
-/* Members Container Section */
-.membersContainer {
-    display: flex;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
-    width: 100%;
-    padding: 10px;
-}
-.memberCard{
-    width: 100%;
-}
-#app{
-    width: 100%;
-}
-
-@media (max-width: 768px) {
     .members{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         width: 100%;
-        gap: 20px;
+        gap: 10px;
     }
     .memberCard{
         width: 100%;
@@ -132,12 +108,30 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
-    gap: 20px;
+    gap: 10px;
+}
+.memberCard{
+    width: 100%;
 }
 }
 
 
-@media (max-width: 480px) {
+
+@media (min-width: 336px) and (max-width: 590px) {
+
+    .members{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        gap: 10px;
+    }
+    .memberCard{
+        width: 100%;
+    }
+    }
+    
+
+/* @media (max-width: 480px) {
     .members{
         display: block;
         gap: 8px;
@@ -146,4 +140,4 @@
     .memberCard{
         width: 100%;
     }
-}
+} */
