@@ -355,32 +355,7 @@ footer {
     }
 }
 
-@media (max-width: 480px) {
-    .about-ourteam {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 8px;
-    }
 
-    .member {
-        padding: 5px;
-    }
-
-    .member h4 {
-        font-size: 10px;
-    }
-
-    .socials a, .socials span {
-        font-size: 10px;
-    }
-
-    .socials {
-        gap: 3px;
-    }
-
-    .member {
-        flex: 1 1 100%;
-    }
-}
 
 /* Members Container Section */
 .membersContainer {
@@ -399,7 +374,7 @@ footer {
 
 @media (max-width: 768px) {
     .membersContainer {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-columns: 1fr;
         width: 100%;
         gap: 10px;
     }
