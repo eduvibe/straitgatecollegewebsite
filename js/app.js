@@ -55,21 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-//see more function handling
-// document.addEventListener('DOMContentLoaded', function() {
-//     document.querySelector('.managment-see-more').addEventListener('click', function() {
-//         var moreMembers = document.getElementById('more-members');
-//         if (moreMembers.classList.contains('hidden')) {
-//             moreMembers.classList.remove('hidden');
-//             moreMembers.style.display = 'flex';
-//             this.innerHTML = 'see less <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>';
-//         } else {
-//             moreMembers.classList.add('hidden');
-//             moreMembers.style.display = 'none';
-//             this.innerHTML = 'see more <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>';
-//         }
-//     });
-// });
 
 
 
