@@ -75,9 +75,8 @@ span a {
 
 @media (max-width: 576px) {
     .contact-info {
-        font-size: 12px;
-        gap: 5px;
-    }
+display: none;    
+}
 
     .contact-info span .material-icons {
         font-size: 11px;
