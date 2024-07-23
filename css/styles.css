@@ -133,13 +133,14 @@ nav .logo img {
 }
 
 /* Features Section Styles */
-.features {
+.features{
     position: relative;
     display: flex;
     bottom: 40px;
+    width: 80%;
     right: 0;
     gap: 10px;
-    margin-left: 3rem;
+    margin-inline: auto;
     align-self: center;
     padding: 10px;
 }
@@ -180,6 +181,11 @@ footer {
     gap: 15px;
     width: 90%;
     padding: 20px;
+    margin-inline: auto;
+}
+
+.ourteamwraper{
+    margin-inline: 7rem;
 }
 
 .member {
@@ -257,7 +263,15 @@ footer {
     margin-bottom: 20px;
 }
 
-
+.hiddenmemberscontainer.members{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 70%;
+    gap: 5px;
+}
+.memberCard{
+    width: 90%;
+}
 .members {
     display: flex;
     flex-wrap: wrap;
@@ -311,4 +325,14 @@ footer {
 }
 #app{
     width: 100%;
+}
+
+.morebtn{
+    margin-left: 4rem;
+}
+.btnmore{
+    border: none;
+    background-color: transparent;
+    color: #b4030f;
+    
 }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Vuetify with Vue CDN</title>
+  <!-- Include Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <!-- Include Vuetify.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.5.10/dist/vuetify.js"></script>
+  <!-- Include Vuetify CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.5.10/dist/vuetify.min.css" rel="stylesheet">
+  <!-- Include Material Design Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <!-- Your Vuetify components will go here -->
+  </div>
+  <!-- Your custom script -->
+  <script>
+    // Initialize Vue with Vuetify
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data: {
+        // Your data properties
+      },
+      methods: {
+        // Your methods
+      },
+      template: `
+        <v-app>
+          <v-main>
+            <v-container>
+              <!-- Vuetify Button -->
+              <v-btn color="primary">Primary Button</v-btn>
+              <!-- Vuetify Card -->
+              <v-card class="mx-auto" max-width="344">
+                <v-img
+                  class="white--text align-end"
+                  height="200px"
+                  src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                >
+                  <v-card-title>Top Image</v-card-title>
+                </v-img>
+                <v-card-subtitle class="pb-0">Subtitle</v-card-subtitle>
+                <v-card-text class="text--primary">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </v-card-text>
+                <v-card-actions>
+                  <v-btn text>Share</v-btn>
+                  <v-btn text>Explore</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-container>
+          </v-main>
+        </v-app>
+      `
+    })
+  </script>
+</body>
+</html>

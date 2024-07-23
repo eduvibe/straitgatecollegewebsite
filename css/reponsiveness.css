@@ -75,30 +75,35 @@
 
 /* Features Section */
 
-    .features {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .feature {
-        width: 100%;
+.feature {
+        width: 80%;
         margin-bottom: 20px;
     }
 
-    .feature p{
+.feature p{
         font-size: 15px;
     }
 .feature h3{
     font-size: 13px;
 }
+
+
 /* Team Members Section */
-    .about-ourteam {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+.about-ourteam {
+        display: grid;
+        margin-inline: auto;
+        grid-template-columns: repeat(2, 1fr);
+        width: 80%;
         gap: 10px;
     }
-
+.hiddenmemberscontainer{
+    margin-inline: auto;
+    width: 80%;
+}
     .member {
         padding: 8px;
+        width: 70%;
+        
     }
 
     .member h4 {
@@ -113,9 +118,9 @@
         gap: 5px;
     }
 
-    .member {
-        flex: 1 1 45%;
-    }
+.morebtn{
+    justify-content: center;
+}
 
     .hero-text p {
         margin-bottom: 1rem;
@@ -152,31 +157,25 @@
 
 }
 
-@media (max-width: 579px) {
-
-.members{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: 100%;
-    gap: 10px;
-}
-.memberCard{
-    width: 100%;
-}
-}
-
-
-
+/* responsivenss to manage extral small screens*/
 @media (min-width: 336px) and (max-width: 590px) {
 
     .members{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         width: 100%;
-        gap: 10px;
+        gap: 5px;
+        
     }
     .memberCard{
-        width: 100%;
+        width: 70%;
     }
-    }
+.features{
+    display: grid;
+    width: 80%;
+    grid-template-columns: 1fr;
+    margin-left: 3rem;
+}    
+
+}
     

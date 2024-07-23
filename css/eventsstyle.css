@@ -69,7 +69,7 @@
     width: 100%;
 }
 
-.exams {
+.exams{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
@@ -133,13 +133,31 @@
     background-color: #f9f9f9;
 }
 
+
 .upevents, .pevents {
-    width: 80%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 90%;
+    gap: 20px;
 }
+
+.eventcard{
+    width: 100%;
+    margin-inline: 20px;
+    padding: 5px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.eventcard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
 
 /* Responsive Styles */
 @media (max-width: 1200px) {
@@ -147,7 +165,6 @@
 .pastEvents h4{
     font-size: 1.5rem;
 }
-
 
     .feature h3 {
         font-size: 18px;
@@ -162,59 +179,46 @@
     }
 
     .exams {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
+    .members{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        width: 80%;
+        gap: 10px;
+        margin-inline: auto;
+    }
+    .memberCard{
+        width: 60%;
+    }
+
 
     .eventsContainer img {
         width: 120px;
     }
 }
 
-@media (max-width: 992px) {
- 
-    .upcomingEvents h4,
-    .pastEvents h4{
-        font-size: 1.5rem;
-    }
-    .feature {
-        padding: 15px;
-    }
-
-    .feature i {
-        font-size: 32px;
-    }
-
-    .feature h3 {
-        font-size: 16px;
-    }
-
-    .feature p {
-        font-size: 14px;
-    }
-
-    .feature a {
-        font-size: 12px;
-    }
-
-    .exams {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .eventsContainer {
-        margin-inline: 1rem;
-        width: 100%;
-    }
-
-    .eventsContainer img {
-        width: 100px;
-    }
-}
 
 @media (max-width: 768px) {
 
  .upcomingEvents h4,
 .pastEvents h4{
     font-size: 1.5rem;
+    text-align: center;
+}
+
+.upevents, .pevents {
+    display: grid;
+    margin-inline: auto;
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
+    gap: 20px;
+}
+
+.eventcard{
+    width: 90%;
+    margin-inline: 30px;
+    padding: 5px;
 }
     .feature {
         padding: 10px;
@@ -237,7 +241,9 @@
     }
 
     .exams {
-        grid-template-columns: 1fr;
+        width: 80%;
+        margin-inline: auto;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .eventsContainer {
@@ -260,10 +266,34 @@
 }
 
 @media (max-width: 576px) {
- .upcomingEvents h4,
+.exams {
+        grid-template-columns: 1fr;
+    }
+
+    .exam{
+        width: 60%;
+        margin-inline: auto;
+    }
+ 
+.upcomingEvents h4,
 .pastEvents h4{
     font-size: .9rem;
-    text-align: justify;
+    text-align: center;
+}
+
+.upevents, .pevents {
+    display: grid;
+    margin-inline: auto;
+    grid-template-columns: 1fr;
+    width: 80%;
+    gap: 20px;
+}
+
+.eventcard{
+    width: 90%;
+    margin-inline: 40px;
+    padding: 5px;
+    margin-block: 20px;
 }
     .feature {
         padding: 5px;
@@ -302,15 +332,12 @@
     .eventsContainer {
         margin-inline: 1rem;
     }
-    .features{
-        width: 80%;
-        align-items: center;
-    }
-
+    
     .features {
         position: relative;
         display: flex;
         bottom: 15px;
+        width: 80%;
         right: 0;
         gap: 5px;
         margin-left: 1rem;
@@ -322,6 +349,7 @@
         text-align: center;
         background-color: #fff;
         border-radius: 4px;
+        width: 60%;
     }
     
 
