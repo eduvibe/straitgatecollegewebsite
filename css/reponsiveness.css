@@ -89,28 +89,15 @@
 
 
 /* Team Members Section */
-.about-ourteam {
-        display: grid;
-        margin-inline: auto;
-        grid-template-columns: repeat(2, 1fr);
-        width: 80%;
-        gap: 10px;
+#aboutcollege{
+        font-size: 13px;
+        text-align: justify;
     }
 .hiddenmemberscontainer{
     margin-inline: auto;
     width: 80%;
 }
-    .member {
-        padding: 8px;
-        width: 70%;
-        
-    }
-
-    .member h4 {
-        font-size: 12px;
-    }
-
-    .socials a, .socials span {
+.socials a, .socials span {
         font-size: 12px;
     }
 
@@ -145,31 +132,13 @@
     }
 
 
-    .members{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        width: 100%;
-        gap: 10px;
-    }
-    .memberCard{
-        width: 100%;
-    }
 
 }
 
 /* responsivenss to manage extral small screens*/
 @media (min-width: 336px) and (max-width: 590px) {
 
-    .members{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        width: 100%;
-        gap: 5px;
-        
-    }
-    .memberCard{
-        width: 70%;
-    }
+    
 .features{
     display: grid;
     width: 80%;

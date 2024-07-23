@@ -175,40 +175,6 @@ footer {
 }
 
 /* Team Members Section Styles */
-.about-ourteam {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
-    width: 90%;
-    padding: 20px;
-    margin-inline: auto;
-}
-
-.ourteamwraper{
-    margin-inline: 7rem;
-}
-
-.member {
-    text-align: center;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-}
-
-.member img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.member h4 {
-    margin: 10px 0;
-    font-size: 14px;
-    color: #333;
-}
-
 .socials {
     display: flex;
     justify-content: center;
@@ -240,44 +206,14 @@ footer {
     margin-right: 5px;
 }
 
-/* Toggle Team Members Visibility Styles */
-.teacher-see-more,
-.managment-see-more {
-    margin-left: 2rem;
-    cursor: pointer;
-}
-
-
 .hiddenmemberscontainer.members{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     width: 80%;
     gap: 5px;
 }
-.memberCard{
-    width: 100%;
-}
-.members {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
 
-.member {
-    flex: 1 1 30%;
-    margin: 10px;
-    padding: 20px;
-    text-align: center;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
 
-.member img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 50%;
-}
 
 .socials {
     display: flex;
@@ -298,6 +234,10 @@ footer {
 }
 
 /* Members Container Section */
+.aboutcontainer{
+    margin-inline: 4rem;
+}
+
 .membersContainer {
     display: flex;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -305,12 +245,15 @@ footer {
     width: 100%;
     padding: 10px;
 }
+.members{
+    width: 80%;
+}
 .memberCard{
     width: 100%;
 }
-#app{
+/* #app{
     width: 100%;
-}
+} */
 
 .morebtn{
     margin-left: 4rem;
