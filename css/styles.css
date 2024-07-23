@@ -248,29 +248,14 @@ footer {
 }
 
 
-.team-section {
-    text-align: center;
-    margin: 20px;
-}
-
-.team-section button {
-    padding: 10px 20px;
-    background: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
 .hiddenmemberscontainer.members{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    width: 70%;
+    width: 80%;
     gap: 5px;
 }
 .memberCard{
-    width: 90%;
+    width: 100%;
 }
 .members {
     display: flex;
