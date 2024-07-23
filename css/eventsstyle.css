@@ -184,12 +184,12 @@
     .members{
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        width: 90%;
+        width: 10%;
         gap: 10px;
         margin-inline: auto;
     }
     .memberCard{
-        width: 80%;
+        width: 100%;
     }
 
 
