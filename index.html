@@ -229,8 +229,7 @@
         </div>
 <!-- Management team section -->
 <div id="app">
-    <div class="ourteamwraper"> <!--This is the wrapper to manage the senior team member display-->
-
+    
     <div class="exams">
             <div class="exam"> <!--This is individual team exam-->
         <img src="/images/ed.png" alt="Executive Director">
@@ -280,10 +279,10 @@
         </div>
     </div>
     </div> <!--End of senior team exam wrapper ends here-->
-    </div>
+    
     
     <!-- This section will be hidden at default and only show when a user clicks to see more -->
-<div class="hiddenmemberscontainer">
+
         <div v-show="showMembers" class="exams">
                 
             <div class="exam" v-for="(member, index) in members" :key="index">
@@ -300,7 +299,7 @@
             </div>
         </div>
 
-        </div>
+        
         <div class="morebtn">    
             <button @click="toggleMembers" class="btnmore">{{ showMembers ? 'Show Less' : 'Show More' }} <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
             </div>    
