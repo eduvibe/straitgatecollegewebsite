@@ -33,9 +33,6 @@
     .scroll-arrow-up {
       bottom: 60px;
     }
-    .v-card:hover {
-      transition: transform 0.3s;
-    }
     .nav-links {
       display: flex;
       list-style: none;
@@ -84,6 +81,9 @@
       .nav-links.active ~ .menu-icon {
         display: none;
       }
+    }
+    .v-card {
+      box-shadow: none !important;
     }
   </style>
 </head>
@@ -134,7 +134,7 @@
               <v-card-title>Extra Curricular Activities</v-card-title>
               <v-card-text>
                 <v-row>
-                  <v-col v-for="activity in extraCurricularActivities" :key="activity.id" cols="12" md="3">
+                  <v-col v-for="activity in extraCurricularActivities" :key="activity.id" cols="12" md="3" class="exam">
                     <v-card :color="darkTheme ? 'grey darken-2' : 'white'">
                       <v-card-title>{{ activity.title }}</v-card-title>
                       <v-card-text>{{ activity.details }}</v-card-text>
@@ -151,7 +151,7 @@
               <v-card-title>Co-Curricular Activities</v-card-title>
               <v-card-text>
                 <v-row>
-                  <v-col v-for="activity in coCurricularActivities" :key="activity.id" cols="12" md="3">
+                  <v-col v-for="activity in coCurricularActivities" :key="activity.id" cols="12" md="3" class="exam">
                     <v-card :color="darkTheme ? 'grey darken-2' : 'white'">
                       <v-card-title>{{ activity.title }}</v-card-title>
                       <v-card-text>{{ activity.details }}</v-card-text>

@@ -29,33 +29,27 @@
         // Your methods
       },
       template: `
-        <v-app>
-          <v-main>
-            <v-container>
-              <!-- Vuetify Button -->
-              <v-btn color="primary">Primary Button</v-btn>
-              <!-- Vuetify Card -->
-              <v-card class="mx-auto" max-width="344">
-                <v-img
-                  class="white--text align-end"
-                  height="200px"
-                  src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-                >
-                  <v-card-title>Top Image</v-card-title>
-                </v-img>
-                <v-card-subtitle class="pb-0">Subtitle</v-card-subtitle>
-                <v-card-text class="text--primary">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </v-card-text>
-                <v-card-actions>
-                  <v-btn text>Share</v-btn>
-                  <v-btn text>Explore</v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-container>
-          </v-main>
-        </v-app>
-      `
+      <template>
+  <v-card
+    class="mx-auto my-8"
+    elevation="16"
+    max-width="344"
+  >
+    <v-card-item>
+      <v-card-title>
+        Card title
+      </v-card-title>
+
+      <v-card-subtitle>
+        Card subtitle secondary text
+      </v-card-subtitle>
+    </v-card-item>
+
+    <v-card-text>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </v-card-text>
+  </v-card>
+</template>  `
     })
   </script>
 </body>
