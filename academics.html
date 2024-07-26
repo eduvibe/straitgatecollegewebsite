@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>|Academics</title>
+  <!-- Include Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <!-- Include Vuetify -->
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.5.10/dist/vuetify.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.5.10/dist/vuetify.js"></script>
+  <!-- Include Material Design Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <link rel="stylesheet" href="/css/contactstyle.css">
+  <link rel="stylesheet" href="/css/eventsstyle.css">
+  <link rel="stylesheet" href="/css/aboutTog.css">
+  <link rel="stylesheet" href="/css/reponsiveness.css">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    .scroll-arrow {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      cursor: pointer;
+    }
+    .scroll-arrow-up {
+      bottom: 60px;
+    }
+    .v-card:hover {
+      transition: transform 0.3s;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      padding: 0;
+    }
+    .nav-links li {
+      margin: 0 15px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+    }
+    .menu-icon,
+    .close-icon {
+      display: none;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        background-color: #b4030f;
+        top: 64px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .menu-icon {
+        display: block;
+        position: absolute;
+        right: 65px; /* Adjust spacing here */
+      }
+      .close-icon {
+        display: none;
+      }
+      .nav-links.active + .close-icon {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+      }
+      .nav-links.active ~ .menu-icon {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app" @click="handleClickOutside">
+    <v-app :dark="darkTheme">
+      <v-app-bar app color="#b4030f" dark>
+        <v-toolbar-title>
+          <img src="/images/sgclogo.png" alt="Straitgate College Logo" height="50">
+        </v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-toolbar-items>
+          <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#events">Events Gallery</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <v-btn icon class="menu-icon" @click="toggleMenu">
+            <v-icon>mdi-menu</v-icon>
+          </v-btn>
+          <v-btn icon class="close-icon" @click="toggleMenu">
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+        </v-toolbar-items>
+        <v-spacer></v-spacer>
+        <v-btn icon @click="toggleTheme" style="margin-right: 1rem;">
+          <v-icon>{{ darkTheme ? 'mdi-weather-night' : 'mdi-weather-sunny' }}</v-icon>
+        </v-btn>
+      </v-app-bar>
+
+      <v-main>
+        <v-container>
+          <!-- Curriculum Section -->
+          <section id="curriculum">
+            <v-card class="mb-5" :color="darkTheme ? 'grey darken-3' : 'white'">
+              <v-card-title>Curriculum</v-card-title>
+              <v-card-text>
+                <p>Our curriculum offers a comprehensive and balanced education designed to prepare students for success in the modern world. It includes a mix of core academic subjects and elective courses to suit individual interests and goals.</p>
+              </v-card-text>
+            </v-card>
+          </section>
+
+          <!-- Extra Curricular Activities Section -->
+          <section id="extra-curricular">
+            <v-card class="mb-5" :color="darkTheme ? 'grey darken-3' : 'white'">
+              <v-card-title>Extra Curricular Activities</v-card-title>
+              <v-card-text>
+                <v-row>
+                  <v-col v-for="activity in extraCurricularActivities" :key="activity.id" cols="12" md="3">
+                    <v-card :color="darkTheme ? 'grey darken-2' : 'white'">
+                      <v-card-title>{{ activity.title }}</v-card-title>
+                      <v-card-text>{{ activity.details }}</v-card-text>
+                    </v-card>
+                  </v-col>
+                </v-row>
+              </v-card-text>
+            </v-card>
+          </section>
+
+          <!-- Co-Curricular Activities Section -->
+          <section id="co-curricular">
+            <v-card class="mb-5" :color="darkTheme ? 'grey darken-3' : 'white'">
+              <v-card-title>Co-Curricular Activities</v-card-title>
+              <v-card-text>
+                <v-row>
+                  <v-col v-for="activity in coCurricularActivities" :key="activity.id" cols="12" md="3">
+                    <v-card :color="darkTheme ? 'grey darken-2' : 'white'">
+                      <v-card-title>{{ activity.title }}</v-card-title>
+                      <v-card-text>{{ activity.details }}</v-card-text>
+                    </v-card>
+                  </v-col>
+                </v-row>
+              </v-card-text>
+            </v-card>
+          </section>
+
+          <!-- Admission Section -->
+          <section id="admission">
+            <v-card class="mb-5" :color="darkTheme ? 'grey darken-3' : 'white'">
+              <v-card-title>Admission</v-card-title>
+              <v-card-text>
+                <p>We welcome applications from students who are eager to join our vibrant learning community. Please follow the steps outlined in the admission procedure section to apply.</p>
+              </v-card-text>
+            </v-card>
+          </section>
+
+          <!-- Admission Procedure Section -->
+          <section id="admission-procedure">
+            <v-card class="mb-5" :color="darkTheme ? 'grey darken-3' : 'white'">
+              <v-card-title>Admission Procedure</v-card-title>
+              <v-card-text>
+                <v-stepper v-model="e1">
+                  <v-stepper-header>
+                    <v-stepper-step :complete="e1 > 1" step="1">Step 1</v-stepper-step>
+                    <v-divider></v-divider>
+                    <v-stepper-step :complete="e1 > 2" step="2">Step 2</v-stepper-step>
+                    <v-divider></v-divider>
+                    <v-stepper-step :complete="e1 > 3" step="3">Step 3</v-stepper-step>
+                    <v-divider></v-divider>
+                    <v-stepper-step :complete="e1 > 4" step="4">Step 4</v-stepper-step>
+                  </v-stepper-header>
+
+                  <v-stepper-items>
+                    <v-stepper-content step="1">
+                      <v-card class="mb-5" color="grey lighten-1" height="200px">
+                        <v-card-text>Fill out the application form online or download a copy and submit it to our admissions office.</v-card-text>
+                      </v-card>
+                      <v-btn color="primary" @click="e1 = 2">Next</v-btn>
+                    </v-stepper-content>
+                    <v-stepper-content step="2">
+                      <v-card class="mb-5" color="grey lighten-1" height="200px">
+                        <v-card-text>Attend an interview with our admissions team to discuss your goals and interests.</v-card-text>
+                      </v-card>
+                      <v-btn color="primary" @click="e1 = 1">Previous</v-btn>
+                      <v-btn color="primary" @click="e1 = 3">Next</v-btn>
+                    </v-stepper-content>
+                    <v-stepper-content step="3">
+                      <v-card class="mb-5" color="grey lighten-1" height="200px">
+                        <v-card-text>Submit any additional documents required, such as transcripts or recommendation letters.</v-card-text>
+                      </v-card>
+                      <v-btn color="primary" @click="e1 = 2">Previous</v-btn>
+                      <v-btn color="primary" @click="e1 = 4">Next</v-btn>
+                    </v-stepper-content>
+                    <v-stepper-content step="4">
+                      <v-card class="mb-5" color="grey lighten-1" height="200px">
+                        <v-card-text>Receive your admission decision and complete the enrollment process if accepted.</v-card-text>
+                      </v-card>
+                      <v-btn color="primary" @click="e1 = 3">Previous</v-btn>
+                    </v-stepper-content>
+                  </v-stepper-items>
+                </v-stepper>
+              </v-card-text>
+            </v-card>
+          </section>
+
+          <!-- Contact Form Section -->
+          <section id="contact">
+            <v-card class="mb-5" :color="darkTheme ? 'grey darken-3' : 'white'">
+              <v-card-title>Contact Us</v-card-title>
+              <v-card-text>
+                <v-form>
+                  <v-text-field label="Name" required :dark="darkTheme"></v-text-field>
+                  <v-text-field label="Email" required :dark="darkTheme"></v-text-field>
+                  <v-textarea label="Message" required :dark="darkTheme"></v-textarea>
+                  <v-btn color="primary" type="submit">Submit</v-btn>
+                </v-form>
+              </v-card-text>
+            </v-card>
+          </section>
+
+          <!-- Scroll Up and Down Arrows -->
+          <v-btn icon class="scroll-arrow scroll-arrow-up" @click="scrollToTop">
+            <v-icon>mdi-arrow-up</v-icon>
+          </v-btn>
+          <v-btn icon class="scroll-arrow" @click="scrollToBottom">
+            <v-icon>mdi-arrow-down</v-icon>
+          </v-btn>
+        </v-container>
+      </v-main>
+    </v-app>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data: () => ({
+        darkTheme: false,
+        e1: 1,
+        extraCurricularActivities: [
+          { id: 1, title: 'Soccer', details: 'Join our soccer team and compete in various leagues and tournaments.' },
+          { id: 2, title: 'Music Club', details: 'Participate in our music club to learn and perform various musical instruments.' },
+          { id: 3, title: 'Drama Society', details: 'Be a part of our drama society and showcase your acting talents.' },
+          { id: 4, title: 'Art Classes', details: 'Explore your creativity through our art classes, including painting and sculpting.' }
+        ],
+        coCurricularActivities: [
+          { id: 1, title: 'Science Club', details: 'Engage in scientific experiments and projects to enhance your knowledge.' },
+          { id: 2, title: 'Math Club', details: 'Join our math club to solve challenging problems and participate in competitions.' },
+          { id: 3, title: 'Debate Team', details: 'Improve your public speaking skills by joining our debate team.' },
+          { id: 4, title: 'Leadership Program', details: 'Develop your leadership skills through our various programs and workshops.' }
+        ],
+        menuOpen: false,
+      }),
+      methods: {
+        toggleTheme() {
+          this.darkTheme = !this.darkTheme;
+        },
+        scrollToTop() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        },
+        scrollToBottom() {
+          window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        },
+        toggleMenu() {
+          this.menuOpen = !this.menuOpen;
+          const navLinks = document.querySelector('.nav-links');
+          navLinks.classList.toggle('active', this.menuOpen);
+          document.querySelector('.close-icon').style.display = this.menuOpen ? 'block' : 'none';
+          document.querySelector('.menu-icon').style.display = this.menuOpen ? 'none' : 'block';
+        },
+        handleClickOutside(event) {
+          const navLinks = document.querySelector('.nav-links');
+          const menuIcon = document.querySelector('.menu-icon');
+          const closeIcon = document.querySelector('.close-icon');
+          if (this.menuOpen && !navLinks.contains(event.target) && !menuIcon.contains(event.target) && !closeIcon.contains(event.target)) {
+            this.menuOpen = false;
+            navLinks.classList.remove('active');
+            closeIcon.style.display = 'none';
+            menuIcon.style.display = 'block';
+          }
+        }
+      }
+    });
+  </script>
+
+  <!-- <script src="/js/app.js"></script> -->
+  <script src="/js/contactinfo.js"></script>
+</body>
+</html>
