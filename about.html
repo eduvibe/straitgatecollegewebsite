@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .contact-section {
+            background-color: #f4f4f4;
+        }
+
+        /* Form Styles */
+        #uniqueContactForm {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #uniqueContactForm label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        #uniqueContactForm input, #uniqueContactForm textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 5px 0 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        #uniqueContactForm button {
+            background-color: #b4030f;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        #uniqueContactForm button:hover {
+            background-color: #a3020c;
+        }
+
+        /* Social Media Styles */
+        .social-media {
+            margin-top: 20px;
+        }
+        .social-media a {
+            text-decoration: none;
+            color: #b4030f;
+            margin: 0 10px;
+            font-size: 1.5em;
+        }
+        .social-media a:hover {
+            color: #a3020c;
+        }
+
+        /* Contact Details Styles */
+        .contact-details {
+            margin-top: 40px;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        .contact-details p {
+            margin: 10px 0;
+        }
+        .contact-details .phone {
+            font-weight: bold;
+            color: #b4030f;
+        }
+        
+        /* Phone Number Styles */
+        .phone-numbers {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .phone-numbers .phone-number {
+            margin: 5px;
+            flex: 1 1 calc(33.333% - 10px);
+            text-align: center;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            .phone-numbers {
+                display: block;
+            }
+            .phone-numbers .phone-number {
+                flex: none;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section id="contact-us" class="section contact-section">
+        <h1>Contact Us</h1>
+        <form id="uniqueContactForm" action="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/formResponse" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="entry.1234567890" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="entry.0987654321" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="entry.1122334455" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <div class="contact-details">
+            <div class="phone-numbers">
+                <div class="phone-number"><p><span class="phone">Phone:</span> +234 801 234 5678</p></div>
+                <div class="phone-number"><p><span class="phone">Phone:</span> +234 802 345 6789</p></div>
+                <div class="phone-number"><p><span class="phone">Phone:</span> +234 803 456 7890</p></div>
+            </div>
+            <p>Address: Road E6, Forthright Gardens Estate Magboro, Ogun State, Nigeria</p>
+            <p><a href="https://www.google.com/maps/place/Road+E6,+Forthright+Gardens+Estate,+Magboro,+Ogun+State,+Nigeria" target="_blank">Find us on Google Maps</a></p>
+        </div>
+
+        <div class="social-media">
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </section>
+</body>
+</html>
