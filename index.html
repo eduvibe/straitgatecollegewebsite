@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/css/eventsstyle.css">
     <link rel="stylesheet" href="/css/aboutTog.css">
     <link rel="stylesheet" href="/css/reponsiveness.css">
+    <link rel="stylesheet" href="/css/ourcont.css">
 
 </head>
 <body>
@@ -367,23 +368,33 @@
 
 </section>
         <!-- Other sections like Courses, Events, Pages, Blog, Contact will go here -->
-
-        <section id="contact" class="section contact">
+        <section id="contact" class="sectioncontact">
             <h1>Contact Us</h1>
-            <form id="contactForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-
-                <button type="submit">Send Message</button>
-            </form>
+            <div class="contact-container">
+                <div class="contact-details">
+                    <h2>Contact Information</h2>
+                    <p><strong>Phone:</strong> +1 (234) 567-8900</p>
+                    <p><strong>Email:</strong> support@example.com</p>
+                    <p><strong>Address:</strong> 123 Main Street, Hometown, ABC</p>
+                </div>
+                <form id="contactForm" action="/submit" method="post">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required aria-required="true">
+        
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required aria-required="true">
+        
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required aria-required="true"></textarea>
+        
+                    <button type="submit" aria-label="Send Message">Send Message</button>
+                </form>
+            </div>
         </section>
-    </main>
+        
+        
+    
+</main>
 
    
     </main>
