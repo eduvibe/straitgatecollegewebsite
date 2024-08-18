@@ -54,7 +54,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="academics.html">Academics</a></li>
                 <li><a href="#events">Events Gallery</a></li>
-                <li><a href="#blog">Blog</a></li>
+                <li><a href="/blog.html">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="access">
@@ -373,10 +373,14 @@
             <div class="contact-container">
                 <div class="contact-details">
                     <h2>Contact Information</h2>
-                    <p><strong>Phone:</strong> +1 (234) 567-8900</p>
-                    <p><strong>Email:</strong> support@example.com</p>
-                    <p><strong>Address:</strong> 123 Main Street, Hometown, ABC</p>
+                    <p><i class="material-icons">phone</i><strong>Phone:</strong> +1 (234) 567-8900</p>
+                    <p><i class="material-icons">mail_outline</i> <strong>Email:</strong> support@example.com</p>
+                    <p><i class="material-icons">house</i><strong>Address:</strong> 123 Main Street, Hometown, ABC</p>
+                    <p><span><i class="fab fa-facebook"></i> <a href="https://facebook.com/straitgatecollege" target="_blank">Facebook</a></span></p>
+                    <span><i class="fab fa-instagram"></i> <a href="https://instagram.com/straitgatecollege" target="_blank">Instagram</a></span>
+            
                 </div>
+                
                 <form id="contactForm" action="/submit" method="post">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required aria-required="true">
@@ -447,7 +451,7 @@ createApp({
           { link: '#', icon: 'fab fa-facebook-f' },
           { link: '#', icon: 'fab fa-twitter' },
           { link: '#', icon: 'fab fa-instagram' }
-        ]
+       ]
       },
       {
         image: '/images/ed.png',

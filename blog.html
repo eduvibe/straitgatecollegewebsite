@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>High School Blog</title>
+  <title>SGC|Blog</title>
   <!-- Vuetify CSS CDN -->
   <link href="https://cdn.jsdelivr.net/npm/vuetify@2.6.10/dist/vuetify.min.css" rel="stylesheet">
   <!-- Vue JS CDN -->
@@ -47,18 +47,24 @@
     }
 
     .post-image {
-      border-radius: 12px;
-      width: 100%;
-      height: auto;
-      margin-bottom: 1rem;
-    }
+  border-radius: 12px;
+  width: 100%; /* Ensures the image takes up the full width of its column */
+  height: auto;
+  margin-bottom: 0; /* Remove bottom margin to align with content */
+}
 
-    .post-actions {
-      margin-top: 1rem;
-      display: flex;
-      justify-content: flex-end;
-      gap: 0.5rem;
-    }
+.post-actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.v-row.align-center {
+  display: flex;
+  align-items: center;
+}
+
 
     .v-footer {
       background-color: #f5f5f5;
@@ -115,9 +121,7 @@
         <v-toolbar-items>
           <ul class="nav-links">
             <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
             <li><a href="#events">Events Gallery</a></li>
-            <li><a href="#blog">Blog</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
           <v-btn icon class="menu-icon" @click="toggleMenu">
@@ -133,33 +137,41 @@
         </v-btn>
       </v-app-bar>
 
-      <!-- Main Content -->
-      <v-container style="margin-top: 2rem;">
-        <v-row style="margin-top: 2rem; margin-bottom: 2rem;">
-          <v-col cols="12" md="8">
-            <!-- Blog Posts -->
-            <v-card v-for="(post, index) in posts" :key="index" class="mb-4">
-              <v-card-title>{{ post.title }}</v-card-title>
-              <v-card-text>
-                <img :src="post.image" alt="Post Image" class="post-image">
-                <div v-html="post.content"></div>
-                <div class="post-actions">
-                  <v-btn icon @click="sharePost(post.url)">
-                    <v-icon>mdi-share</v-icon>
-                  </v-btn>
-                  <v-btn icon @click="copyToClipboard(post.url)">
-                    <v-icon>mdi-content-copy</v-icon>
-                  </v-btn>
-                </div>
-              </v-card-text>
-            </v-card>
-          </v-col>
-          <v-col cols="12" md="4">
-            <!-- Sidebar (optional) -->
+<!-- Main Content -->
+<v-container style="margin-top: 2rem;">
+   <v-row style="margin-top: 2rem; margin-bottom: 2rem;">
+    <v-col cols="12" md="8">
+ 
+<!-- Blog Posts -->
+<v-card v-for="(post, index) in posts" :key="index" class="mb-4" v-if="currentPost === index">
+  <v-card-title>{{ post.title }}</v-card-title>
+  <v-card-text>
+    <v-row class="align-center">
+      <v-col cols="12" md="5" style="flex: 0 0 40%;">
+        <img :src="post.image" alt="Post Image" class="post-image">
+      </v-col>
+      <v-col cols="12" md="7" style="flex: 1;">
+        <div v-html="post.content"></div>
+        <div class="post-actions">
+          <v-btn icon @click="sharePost(post.url)">
+            <v-icon>mdi-share</v-icon>
+          </v-btn>
+          <v-btn icon @click="copyToClipboard(post.url)">
+            <v-icon>mdi-content-copy</v-icon>
+          </v-btn>
+        </div>
+      </v-col>
+    </v-row>
+  </v-card-text>
+</v-card>
+
+  </v-col>
+<v-col cols="12" md="4">
+<!-- Sidebar (optional) -->
             <v-card class="mb-4">
               <v-card-title>Recent Posts</v-card-title>
               <v-list>
-                <v-list-item v-for="(post, index) in posts.slice(0, 5)" :key="index">
+                <v-list-item v-for="(post, index) in posts.slice(0, 5)" :key="index" @click="currentPost = index" style="cursor: pointer;">
                   <v-list-item-content>{{ post.title }}</v-list-item-content>
                 </v-list-item>
               </v-list>
@@ -177,108 +189,74 @@
     </v-app>
   </div>
 
-  <script>
-    new Vue({
-      el: '#app',
-      vuetify: new Vuetify(),
-      data() {
-        return {
-          darkTheme: false,
-          posts: [
-            { 
-              title: 'Choosing a Career Path in High School', 
-              content: '<p>Choosing a career path can be overwhelming. Explore different options, talk to professionals, and take career assessments to find your passion.</p>', 
-              image: './images/career.png', 
-              url: './images/career.png'
-            },
-            { 
-              title: 'Managing Emotions During School Years', 
-              content: '<p>High school can be emotionally taxing. Learn about coping strategies, seeking support from friends and counselors, and managing stress.</p>', 
-              image: 'https://source.unsplash.com/600x400/?emotions', 
-              url: 'https://example.com/managing-emotions'
-            },
-            { 
-              title: 'Effective Study Techniques', 
-              content: '<p>Study smarter, not harder. Discover effective study techniques such as active recall, spaced repetition, and proper note-taking.</p>', 
-              image: 'https://source.unsplash.com/600x400/?study', 
-              url: 'https://example.com/study-techniques'
-            },
-            { 
-              title: 'Discipline and Self-Control in High School', 
-              content: '<p>Building discipline is crucial for academic success. Learn about setting goals, creating routines, and staying motivated.</p>', 
-              image: 'https://source.unsplash.com/600x400/?discipline', 
-              url: 'https://example.com/discipline'
-            },
-            { 
-              title: 'Dealing with Distractions', 
-              content: '<p>In a world full of distractions, staying focused can be challenging. Explore techniques to minimize distractions and boost concentration.</p>', 
-              image: 'https://source.unsplash.com/600x400/?distractions', 
-              url: 'https://example.com/dealing-with-distractions'
-            },
-            { 
-              title: 'Coping with Multiple Subjects', 
-              content: '<p>Managing multiple subjects requires effective time management and organizational skills. Learn strategies to balance and prioritize your workload.</p>', 
-              image: 'https://source.unsplash.com/600x400/?subjects', 
-              url: 'https://example.com/coping-with-subjects'
-            },
-            { 
-              title: 'Balancing Extracurricular Activities and Studies', 
-              content: '<p>Extracurricular activities are important, but balancing them with academic responsibilities is key. Discover tips for managing both effectively.</p>', 
-              image: 'https://source.unsplash.com/600x400/?extracurricular', 
-              url: 'https://example.com/balancing-activities'
-            },
-            { 
-              title: 'Preparing for College Admissions', 
-              content: '<p>College admissions can be a complex process. Get tips on preparing applications, writing personal statements, and choosing the right college.</p>', 
-              image: 'https://source.unsplash.com/600x400/?college', 
-              url: 'https://example.com/college-admissions'
-            },
-            { 
-              title: 'Building Healthy Relationships with Peers', 
-              content: '<p>Healthy relationships with peers are essential. Learn about communication skills, conflict resolution, and fostering positive interactions.</p>', 
-              image: 'https://source.unsplash.com/600x400/?relationships', 
-              url: 'https://example.com/healthy-relationships'
-            },
-            { 
-              title: 'Understanding Mental Health in Adolescence', 
-              content: '<p>Understanding mental health issues is important. Learn about common mental health challenges and where to seek help and support.</p>', 
-              image: 'https://source.unsplash.com/600x400/?mental-health', 
-              url: 'https://example.com/mental-health'
-            },
-            { 
-              title: 'Effective Time Management for Students', 
-              content: '<p>Effective time management is crucial for balancing studies and personal life. Discover tips on planning, prioritizing tasks, and avoiding procrastination.</p>', 
-              image: 'https://source.unsplash.com/600x400/?time-management', 
-              url: 'https://example.com/time-management'
-            }
-          ]
+<script>
+  new Vue({
+  el: '#app',
+  vuetify: new Vuetify(),
+  data() {
+    return {
+      darkTheme: false,
+      currentPost: 0, // Initialize to show the first post by default
+      posts: [
+        { 
+          title: 'Choosing a Career Path in High School', 
+          content: '<p>Choosing a career path can be overwhelming. Explore different options, talk to professionals, and take career assessments to find your passion.</p>', 
+          image: './images/career.png', 
+          url: './images/career.png'
+        },
+        { 
+          title: 'Managing Emotions During School Years', 
+          content: '<p>High school can be emotionally taxing. Learn about coping strategies, seeking support from friends and counselors, and managing stress.</p>', 
+          image: 'https://source.unsplash.com/600x400/?emotions', 
+          url: 'https://example.com/managing-emotions'
+        },
+        { 
+          title: 'Effective Study Techniques', 
+          content: '<p>Study smarter, not harder. Discover effective study techniques such as active recall, spaced repetition, and proper note-taking.</p>', 
+          image: 'https://source.unsplash.com/600x400/?study', 
+          url: 'https://example.com/study-techniques'
+        },
+        { 
+          title: 'Discipline and Self-Control in High School', 
+          content: '<p>Building discipline is crucial for academic success. Learn about setting goals, creating routines, and staying motivated.</p>', 
+          image: 'https://source.unsplash.com/600x400/?discipline', 
+          url: 'https://example.com/discipline'
+        },
+        { 
+          title: 'Dealing with Distractions', 
+          content: '<p>In a world full of distractions, staying focused can be challenging. Explore techniques to minimize distractions and boost concentration.</p>', 
+          image: 'https://source.unsplash.com/600x400/?distractions', 
+          url: 'https://example.com/dealing-with-distractions'
         }
-      },
-      methods: {
-        toggleMenu() {
-          // Toggle menu functionality here
-        },
-        toggleTheme() {
-          this.darkTheme = !this.darkTheme;
-        },
-        sharePost(url) {
-          if (navigator.share) {
-            navigator.share({
-              title: 'High School Blog Post',
-              url: url
-            }).catch(console.error);
-          } else {
-            alert('Share not supported on this browser.');
-          }
-        },
-        copyToClipboard(url) {
-          navigator.clipboard.writeText(url)
-            .then(() => alert('Link copied to clipboard!'))
-            .catch(err => console.error('Failed to copy: ', err));
-        }
+      ]
+    }
+  },
+  methods: {
+    toggleMenu() {
+      // Toggle menu functionality here
+    },
+    toggleTheme() {
+      this.darkTheme = !this.darkTheme;
+    },
+    sharePost(url) {
+      if (navigator.share) {
+        navigator.share({
+          title: 'High School Blog Post',
+          url: url
+        }).catch(console.error);
+      } else {
+        alert('Share not supported on this browser.');
       }
-    });
-  </script>
+    },
+    copyToClipboard(url) {
+      navigator.clipboard.writeText(url)
+        .then(() => alert('Link copied to clipboard!'))
+        .catch(err => console.error('Failed to copy: ', err));
+    }
+  }
+});
+
+</script>
 <script src="/js/app.js"></script>
 </body>
 </html>

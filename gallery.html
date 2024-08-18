@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Events Gallery</title>
+  <!-- Include Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <!-- Include Vuetify -->
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.5.10/dist/vuetify.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.5.10/dist/vuetify.js"></script>
+  <!-- Include Material Design Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    .v-app-bar {
+      margin-bottom: 20px; /* Margin below the app bar */
+    }
+
+    .v-toolbar-title img {
+      height: 50px;
+    }
+
+    .v-toolbar-items {
+      display: flex;
+      justify-content: center; /* Center align toolbar items */
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      justify-content: center; /* Center align navigation links */
+    }
+
+    .nav-links li {
+      margin: 0 15px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .nav-links a.active {
+      color: #b4030f;
+    }
+
+    .main-container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      color: #333;
+      margin: 0;
+      padding: 20px 0;
+    }
+
+    .main-container{
+        margin-top: 3rem;
+    }
+    .gallery {
+        margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .pagination button {
+      background-color: #b4030f;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 5px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .pagination button:hover {
+      background-color: #91020c;
+    }
+
+    .pagination button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #333;
+      color: #fff;
+      margin-top: 20px;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+
+    .footer a {
+      color: #b4030f;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .lightbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 2000;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <v-app>
+        <v-app-bar app color="#fff" dark>
+            <v-toolbar-title>
+              <img src="/images/sgclogo.png" alt="Straitgate College Logo" height="50">
+            </v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-toolbar-items>
+              <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="#events">Events Gallery</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </v-toolbar-items>
+            <v-spacer></v-spacer>
+            <v-btn icon @click="toggleTheme" style="margin-right: 20px; margin-left: 2rem; color: #b4030f;">
+              <v-icon>{{ darkTheme ? 'mdi-weather-night' : 'mdi-weather-sunny' }}</v-icon>
+            </v-btn>
+          </v-app-bar>
+    
+      <div class="main-container">
+        <div class="header">
+          <h1>School Events Gallery</h1>
+        </div>
+
+        <div class="gallery">
+          <div v-for="(image, index) in paginatedImages" :key="index" @click="openLightbox(image)">
+            <img :src="image" :alt="'Event Image ' + (currentPage * imagesPerPage + index + 1)">
+          </div>
+        </div>
+
+        <div class="pagination">
+          <button @click="previousPage" :disabled="currentPage === 0">Previous</button>
+          <button v-for="page in totalPages" :key="page" @click="goToPage(page - 1)" :class="{ active: currentPage === page - 1 }">
+            {{ page }}
+          </button>
+          <button @click="nextPage" :disabled="currentPage === totalPages - 1">Next</button>
+        </div>
+      </div>
+
+      <div v-if="lightboxOpen" class="lightbox" @click="closeLightbox">
+        <span class="lightbox-close" @click="closeLightbox">&times;</span>
+        <img :src="lightboxImage" alt="Expanded Image">
+      </div>
+
+      <div class="footer">
+        <p>&copy; 2024 School Events Gallery. All Rights Reserved. | <a href="#contact">Contact Us</a></p>
+      </div>
+    </v-app>
+  </div>
+
+  <!-- Vue.js and Vuetify Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.5.10/dist/vuetify.js"></script>
+
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data() {
+        return {
+          images: [
+            'images/picture1.jpg',
+            'images/picture2.jpg',
+            'images/picture3.jpg',
+            'images/picture4.jpg',
+            'images/picture5.jpg',
+            'images/picture6.jpg',
+            'images/picture7.jpg',
+            'images/picture8.jpg',
+            'images/picture9.jpg',
+            'images/picture10.jpeg',
+            'images/picture11.jpeg',
+            'images/picture12.jpeg',
+            'images/picture13.jpeg',
+            'images/picture14.jpeg',
+            'images/picture15.jpeg',
+            'images/picture16.jpeg',
+            'images/picture17.jpeg',  
+          ],
+          currentPage: 0,
+          imagesPerPage: 8,
+          lightboxOpen: false,
+          lightboxImage: ''
+        };
+      },
+      computed: {
+        totalPages() {
+          return Math.ceil(this.images.length / this.imagesPerPage);
+        },
+        paginatedImages() {
+          const start = this.currentPage * this.imagesPerPage;
+          const end = start + this.imagesPerPage;
+          return this.images.slice(start, end);
+        }
+      },
+      methods: {
+        previousPage() {
+          if (this.currentPage > 0) {
+            this.currentPage--;
+          }
+        },
+        nextPage() {
+          if (this.currentPage < this.totalPages - 1) {
+            this.currentPage++;
+          }
+        },
+        goToPage(pageNumber) {
+          this.currentPage = pageNumber;
+        },
+        openLightbox(image) {
+          this.lightboxImage = image;
+          this.lightboxOpen = true;
+        },
+        closeLightbox() {
+          this.lightboxOpen = false;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
