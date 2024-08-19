@@ -20,7 +20,20 @@ document.querySelector('.menu-icon').addEventListener('click', () => {
         }
     });
 
-
+    document.addEventListener('DOMContentLoaded', function() {
+        // Show the popup when the page loads
+        const popupAd = document.getElementById('popup-ad');
+        const closePopup = document.getElementById('close-popup');
+    
+        // Show the popup
+        popupAd.style.display = 'flex';
+    
+        // Close the popup when the close button is clicked
+        closePopup.addEventListener('click', function() {
+            popupAd.style.display = 'none';
+        });
+    });
+    
 
 
 

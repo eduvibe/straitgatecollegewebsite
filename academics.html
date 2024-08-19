@@ -3,97 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>|Academics</title>
+  <title>Academics</title>
+
   <!-- Include Vue.js -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
   <!-- Include Vuetify -->
   <link href="https://cdn.jsdelivr.net/npm/vuetify@2.5.10/dist/vuetify.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/vuetify@2.5.10/dist/vuetify.js"></script>
+
   <!-- Include Material Design Icons -->
   <link href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet">
   
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<link rel="stylesheet" href="/css/academics.css">
-<link rel="stylesheet" href="/css/reponsiveness.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/academics.css">
+  <link rel="stylesheet" href="/css/responsiveness.css">
 </head>
-<body >
+<body>
   <div id="app" @click="handleClickOutside">
     <v-app :dark="darkTheme">
-      <v-app-bar app color="#fff" dark :color="darkTheme ? 'black darken-6' : 'white'">
+      <!-- App Bar -->
+      <v-app-bar app :color="darkTheme ? 'black darken-6' : 'white'">
         <v-toolbar-title>
           <img src="/images/sgclogo.png" alt="Straitgate College Logo" height="50">
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-toolbar-items>
-          <ul class="nav-links">
+          <ul class="nav-links" :class="{ active: navActive }">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="/gallery.html">Events Gallery</a></li>
             <li><a href="/blog.html">Blog</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
-          <v-btn icon class="menu-icon" @click="toggleMenu">
-            <v-icon>mdi-menu</v-icon>
-          </v-btn>
-          <v-btn icon class="close-icon" @click="toggleMenu">
-            <v-icon>mdi-close</v-icon>
-          </v-btn>
         </v-toolbar-items>
-        <v-spacer></v-spacer>
-        <v-btn icon @click="toggleTheme" style="margin-right: 20px; margin-left: 2rem; color: #b4030f;">
+        <v-btn icon @click="toggleNav" class="menu-icon">
+          <v-icon>mdi-menu</v-icon>
+        </v-btn>
+        <v-btn icon @click="toggleNav" class="close-icon">
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+        
+        <v-btn icon @click="toggleTheme" style="color: #b4030f;">
           <v-icon>{{ darkTheme ? 'mdi-weather-night' : 'mdi-weather-sunny' }}</v-icon>
         </v-btn>
       </v-app-bar>
 
       <v-main>
         <v-container>
-          <!-- Curriculum Section -->
           <section id="curriculum">
-            <v-card class="mb-5" :color="darkTheme ? '#1A237E' : 'white'">
-              <v-card-title :class="darkTheme ? 'white--text' : 'black--text'">Curriculum</v-card-title>
-              <v-card-text :class="darkTheme ? 'white--text' : 'black--text'">
+            <v-card class="card-container mb-5" :color="darkTheme ? '#1A237E' : 'white'">
+              <v-card-title class="card-title heading" :class="darkTheme ? 'white--text' : 'black--text'">Curriculum</v-card-title>
+              <v-card-text class="card-text" :class="darkTheme ? 'white--text' : 'black--text'">
                 <p>Our curriculum offers a comprehensive and balanced education designed to prepare 
                   students for success in the modern world. It includes a mix of core academic subjects 
                   and elective courses to suit individual interests and goals.</p>
               </v-card-text>
             </v-card>
           </section>
-
-          <!-- Extra Curricular Activities Section -->
+          
           <section id="extra-curricular">
-            <v-card class="mb-5" :color="darkTheme ? 'black darken-6': 'white'">
-              <v-card-title :class="darkTheme ? 'white--text' : 'black--text'">Extra Curricular Activities</v-card-title>
+            <v-card class="card-container mb-5" :color="darkTheme ? 'black darken-6' : 'white'">
+              <v-card-title class="card-title heading" :class="darkTheme ? 'white--text' : 'black--text'">Extra Curricular Activities</v-card-title>
               <v-card-text>
                 <v-row>
-                  <v-col v-for="activity in extraCurricularActivities" :key="activity.id" cols="12" md="3" class="exam">
-                    <v-card :color="darkTheme ? '#1A237E' : 'white'">
-                      <v-card-title :class="darkTheme ? 'white--text' : 'black--text'">{{ activity.title }}</v-card-title>
-                      <v-card-text :class="darkTheme ? 'white--text' : 'black--text'">{{ activity.details }}</v-card-text>
+                  <v-col v-for="activity in extraCurricularActivities" :key="activity.id" cols="12" md="3">
+                    <v-card id="cols" class="card-container" :color="darkTheme ? '#1A237E' : 'white'">
+                      <v-card-title class="card-title" :class="darkTheme ? 'white--text' : 'black--text'">{{ activity.title }}</v-card-title>
+                      <v-card-text class="card-text" :class="darkTheme ? 'white--text' : 'black--text'">{{ activity.details }}</v-card-text>
                     </v-card>
                   </v-col>
                 </v-row>
               </v-card-text>
             </v-card>
           </section>
-
-          <!-- Co-Curricular Activities Section -->
+          
           <section id="co-curricular">
-            <v-card class="mb-5" :color="darkTheme ? 'black darken-3' : 'white'">
-              <v-card-title :class="darkTheme ? 'white--text' : 'black--text'">Co-Curricular Activities</v-card-title>
+            <v-card class="card-container mb-5" :color="darkTheme ? 'black darken-3' : 'white'">
+              <v-card-title class="card-title heading" :class="darkTheme ? 'white--text' : 'black--text'">Co-Curricular Activities</v-card-title>
               <v-card-text>
                 <v-row>
-                  <v-col v-for="activity in coCurricularActivities" :key="activity.id" cols="12" md="3" class="exam">
-                    <v-card :color="darkTheme ? '#1A237E' : 'white'">
-                      <v-card-title :class="darkTheme ? 'white--text' : 'black--text'">{{ activity.title }}</v-card-title>
-                      <v-card-text :class="darkTheme ? 'white--text' : 'black--text'">{{ activity.details }}</v-card-text>
-                      
+                  <v-col v-for="activity in coCurricularActivities" :key="activity.id" cols="12" md="3">
+                    <v-card class="card-container" :color="darkTheme ? '#1A237E' : 'white'">
+                      <v-card-title class="card-title" :class="darkTheme ? 'white--text' : 'black--text'">{{ activity.title }}</v-card-title>
+                      <v-card-text class="card-text" :class="darkTheme ? 'white--text' : 'black--text'">{{ activity.details }}</v-card-text>
                     </v-card>
                   </v-col>
                 </v-row>
               </v-card-text>
             </v-card>
           </section>
-
+          
+          
           <!-- Admission Section -->
           <section id="admission">
             <v-card class="mb-5" :color="darkTheme ? 'black' : 'white'">
@@ -108,7 +109,7 @@
           <section id="admission-procedure">
             <v-card class="mb-5" :color="darkTheme ? 'black' : 'white'">
               <v-card-title :class="darkTheme ? 'white--text' : 'black--text'">Admission Procedure</v-card-title>
-              <v-card-text >
+              <v-card-text>
                 <v-stepper v-model="e1">
                   <v-stepper-header>
                     <v-stepper-step :complete="e1 > 1" step="1">Step 1</v-stepper-step>
@@ -122,63 +123,137 @@
 
                   <v-stepper-items>
                     <v-stepper-content step="1">
-                      <v-card class="mb-5" color="#ccc" height="200px">
-                        <v-card-text :class="darkTheme ? '#ccc--text' : 'black--text'">Fill out the application form online or download a copy and submit it to our admissions office.</v-card-text>
+                      <v-card class="mb-5" :color="darkTheme ? '#ccc' : 'white'" height="200px">
+                        <v-card-text :class="darkTheme ? 'white--text' : 'black--text'">Fill out the application form online or download a copy and submit it to our admissions office.</v-card-text>
                       </v-card>
                       <v-btn color="primary" @click="e1 = 2">Next</v-btn>
                     </v-stepper-content>
                     <v-stepper-content step="2">
-                      <v-card class="mb-5" color="grey lighten-1" height="200px">
-                        <v-card-text>Attend an interview with our admissions team to discuss your goals and interests.</v-card-text>
+                      <v-card class="mb-5" :color="darkTheme ? '#ccc' : 'white'" height="200px">
+                        <v-card-text :class="darkTheme ? 'white--text' : 'black--text'">Attend an interview with our admissions team to discuss your goals and interests.</v-card-text>
                       </v-card>
                       <v-btn color="primary" @click="e1 = 1">Previous</v-btn>
                       <v-btn color="primary" @click="e1 = 3">Next</v-btn>
                     </v-stepper-content>
                     <v-stepper-content step="3">
-                      <v-card class="mb-5" color="grey lighten-1" height="200px">
-                        <v-card-text>Submit any additional documents required, such as transcripts or recommendation letters.</v-card-text>
+                      <v-card class="mb-5" :color="darkTheme ? '#ccc' : 'white'" height="200px">
+                        <v-card-text :class="darkTheme ? 'white--text' : 'black--text'">Submit any additional documents required, such as transcripts or recommendation letters.</v-card-text>
                       </v-card>
                       <v-btn color="primary" @click="e1 = 2">Previous</v-btn>
                       <v-btn color="primary" @click="e1 = 4">Next</v-btn>
                     </v-stepper-content>
                     <v-stepper-content step="4">
-                      <v-card class="mb-5" color="grey lighten-1" height="200px">
-                        <v-card-text>Receive your admission decision and complete the enrollment process if accepted.</v-card-text>
+                      <v-card class="mb-5" :color="darkTheme ? '#ccc' : 'white'" height="200px">
+                        <v-card-text :class="darkTheme ? 'white--text' : 'black--text'">Receive your admission decision and next steps for enrollment.</v-card-text>
                       </v-card>
                       <v-btn color="primary" @click="e1 = 3">Previous</v-btn>
                     </v-stepper-content>
                   </v-stepper-items>
                 </v-stepper>
-              </v-card-text>
-            </v-card>
-          </section>
+            <a href="/form.html" class="formbtn">Apply</a>
 
-          <!-- Contact Form Section -->
-          <section id="contact">
-            <v-card class="mb-5" :color="darkTheme ? 'black' : 'white'">
-              <v-card-title :class="darkTheme ? 'white--text' : 'black--text'">Contact Us</v-card-title>
-              <v-card-text>
-                <v-form>
-                  <v-text-field label="Name" required :dark="darkTheme"></v-text-field>
-                  <v-text-field label="Email" required :dark="darkTheme"></v-text-field>
-                  <v-textarea label="Message" required :dark="darkTheme"></v-textarea>
-                  <v-btn color="primary" type="submit">Submit</v-btn>
-                </v-form>
               </v-card-text>
-            </v-card>
-          </section>
-
-          <!-- Scroll Up and Down Arrows -->
-          <v-btn icon class="scroll-arrow scroll-arrow-up" @click="scrollToTop">
-            <v-icon>mdi-arrow-up</v-icon>
-          </v-btn>
-          <v-btn icon class="scroll-arrow" @click="scrollToBottom">
-            <v-icon>mdi-arrow-down</v-icon>
-          </v-btn>
+             </v-card>
+            </section>
         </v-container>
       </v-main>
+
+      <v-footer app :color="darkTheme ? 'black darken-3' : '#b4030f'" dark>
+        <v-container>
+          <v-row align="center">
+            <!-- Logo and Socials -->
+            <v-col cols="12" md="4" class="d-flex align-center">
+              <div class="footer-logo">
+                <img src="/images/sgclogo.png" alt="Straitgate College Logo" height="40">
+              </div>
+              <div class="footer-socials ml-4">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                  <v-icon>mdi-facebook</v-icon>
+                </a>
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                  <v-icon>mdi-twitter</v-icon>
+                </a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                  <v-icon>mdi-instagram</v-icon>
+                </a>
+                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                  <v-icon>mdi-linkedin</v-icon>
+                </a>
+                
+              </div>
+            </v-col>
+            
+            <!-- Copyright -->
+            <v-col cols="12" md="4" class="text-center">
+              <div class="footer-links">
+                <p>&copy; 2024 Straitgate College. All Rights Reserved. Designed and Maintained by Chimtech Hub</p>
+              </div>
+            </v-col>
+            
+            <!-- Scroll Buttons -->
+            <v-col cols="12" md="4" class="d-flex justify-end align-center">
+              <v-btn icon @click="scrollToTop">
+                <v-icon>mdi-arrow-up</v-icon>
+              </v-btn>
+              <v-btn icon @click="scrollToBottom">
+                <v-icon>mdi-arrow-down</v-icon>
+              </v-btn>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-footer>
+        
     </v-app>
+    
   </div>
-  <script src="/js/acade.js"></script>
-  </body>
+
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data() {
+        return {
+          darkTheme: false,
+          e1: 1,
+          navActive: false,
+          extraCurricularActivities: [
+            { id: 1, title: 'Sports', details: 'Football, basketball, athletics, and more.' },
+            { id: 2, title: 'Music', details: 'Choir, band, and music theory classes.' },
+            { id: 3, title: 'Arts & Crafts', details: 'Drawing, painting, and sculpture.' },
+            { id: 4, title: 'Drama', details: 'Acting, stage design, and playwriting.' },
+          ],
+          coCurricularActivities: [
+            { id: 1, title: 'Science Club', details: 'Hands-on experiments and projects.' },
+            { id: 2, title: 'Debate Club', details: 'Public speaking and critical thinking skills.' },
+            { id: 3, title: 'Math Club', details: 'Advanced mathematics and problem-solving.' },
+            { id: 4, title: 'Robotics', details: 'Building and programming robots.' },
+          ]
+        };
+      },
+      methods: {
+        toggleTheme() {
+          this.darkTheme = !this.darkTheme;
+        },
+        scrollToTop() {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        },
+        scrollToBottom() {
+          window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+          });
+        },
+        handleClickOutside(event) {
+          // Additional logic if needed
+        },
+        toggleNav() {
+    this.navActive = !this.navActive;
+  }
+      }
+    });
+  </script>
+</body>
 </html>

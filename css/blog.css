@@ -1,0 +1,145 @@
+/* Custom Styles */
+v-app-bar {
+  margin-bottom: 2rem; /* Adds space below the navbar */
+}
+
+.v-toolbar-title img {
+  height: 50px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+.nav-links li {
+  margin: 0 1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #b4030f; /* Sets the color for nav links */
+  font-weight: 500;
+  font-size: 16px; /* Adjust font size for better readability */
+}
+
+.nav-links a.active {
+  font-weight: bold;
+}
+
+.post-image {
+border-radius: 12px;
+width: 100%; /* Ensures the image takes up the full width of its column */
+height: auto;
+margin-bottom: 0; /* Remove bottom margin to align with content */
+}
+
+.post-actions {
+margin-top: 1rem;
+display: flex;
+justify-content: flex-end;
+gap: 0.5rem;
+}
+
+.v-row.align-center {
+display: flex;
+align-items: center;
+}
+
+
+
+.v-container {
+  margin-top: 2rem; /* Ensures content is spaced from navbar */
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .v-app-bar {
+    font-size: 16px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    display: none; /* Hide the nav links on mobile */
+  }
+
+  .nav-links.active {
+    display: flex; /* Show the nav links when the menu is toggled */
+  }
+
+  .v-toolbar-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .v-btn.menu-icon {
+    display: block;
+  }
+
+  .v-btn.close-icon {
+    display: none;
+  }
+}
+
+.v-btn.icon {
+  color: #b4030f; /* Sets the color for toggle and dark mode icons */
+}
+ /* footer style section */
+ .footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    border-radius: 0 0 8px 8px;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-logo img {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .footer-links a {
+    color: #b4030f;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-socials {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .footer-socials a {
+    color: #fff; /* Set icon color to white */
+    font-size: 24px;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-socials a:hover {
+    color: #b4030f; /* Color on hover */
+  }
+  

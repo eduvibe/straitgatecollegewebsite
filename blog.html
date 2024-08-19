@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SGC|Blog</title>
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet">
   <!-- Vuetify CSS CDN -->
   <link href="https://cdn.jsdelivr.net/npm/vuetify@2.6.10/dist/vuetify.min.css" rel="stylesheet">
   <!-- Vue JS CDN -->
@@ -12,102 +13,9 @@
   <script src="https://cdn.jsdelivr.net/npm/vuetify@2.6.10/dist/vuetify.js"></script>
   <link rel="stylesheet" href="/css/reponsiveness.css">
   <!-- <link rel="stylesheet" href="/css/styles.css"> -->
-
-  <style>
-    /* Custom Styles */
-    v-app-bar {
-      margin-bottom: 2rem; /* Adds space below the navbar */
-    }
-
-    .v-toolbar-title img {
-      height: 50px;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      padding: 0;
-      margin: 0;
-      align-items: center;
-    }
-
-    .nav-links li {
-      margin: 0 1rem;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #b4030f; /* Sets the color for nav links */
-      font-weight: 500;
-      font-size: 16px; /* Adjust font size for better readability */
-    }
-
-    .nav-links a.active {
-      font-weight: bold;
-    }
-
-    .post-image {
-  border-radius: 12px;
-  width: 100%; /* Ensures the image takes up the full width of its column */
-  height: auto;
-  margin-bottom: 0; /* Remove bottom margin to align with content */
-}
-
-.post-actions {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.5rem;
-}
-
-.v-row.align-center {
-  display: flex;
-  align-items: center;
-}
+   <link rel="stylesheet" href="/css/blog.css">
 
 
-    .v-footer {
-      background-color: #f5f5f5;
-    }
-
-    .v-container {
-      margin-top: 2rem; /* Ensures content is spaced from navbar */
-    }
-
-    /* Responsive tweaks */
-    @media (max-width: 600px) {
-      .v-app-bar {
-        font-size: 16px;
-      }
-
-      .nav-links {
-        flex-direction: column;
-        display: none; /* Hide the nav links on mobile */
-      }
-
-      .nav-links.active {
-        display: flex; /* Show the nav links when the menu is toggled */
-      }
-
-      .v-toolbar-items {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-      }
-
-      .v-btn.menu-icon {
-        display: block;
-      }
-
-      .v-btn.close-icon {
-        display: none;
-      }
-    }
-
-    .v-btn.icon {
-      color: #b4030f; /* Sets the color for toggle and dark mode icons */
-    }
-  </style>
 </head>
 <body>
   <div id="app">
@@ -180,12 +88,33 @@
         </v-row>
       </v-container>
 
-      <!-- Footer -->
-      <v-footer app>
-        <v-col class="text-center">
-          <span>&copy; 2024 High School Blog</span>
-        </v-col>
-      </v-footer>
+             <!-- Footer -->
+     <div class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="/images/sgclogo.png" alt="Straitgate College Logo" height="40">
+        </div>
+        <div class="footer-links">
+          <p>&copy; 2024 Straitgate College. All Rights Reserved. Designed and Maintained by Chimtech Hub</p>
+          <a href="/form.html">Contact Us</a>
+        </div>
+        <div class="footer-socials">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <i class="mdi mdi-facebook"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <i class="mdi mdi-twitter"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+            <i class="mdi mdi-instagram"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+            <i class="mdi mdi-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
     </v-app>
   </div>
 
@@ -207,26 +136,25 @@
         { 
           title: 'Managing Emotions During School Years', 
           content: '<p>High school can be emotionally taxing. Learn about coping strategies, seeking support from friends and counselors, and managing stress.</p>', 
-          image: 'https://source.unsplash.com/600x400/?emotions', 
-          url: 'https://example.com/managing-emotions'
+          image: './images/emotio.jpg', 
+          url: './images/emotio.jpg'
         },
         { 
           title: 'Effective Study Techniques', 
           content: '<p>Study smarter, not harder. Discover effective study techniques such as active recall, spaced repetition, and proper note-taking.</p>', 
-          image: 'https://source.unsplash.com/600x400/?study', 
-          url: 'https://example.com/study-techniques'
-        },
+          image: './images/study.jpg', 
+          url: './images/study.jpg'        },
         { 
           title: 'Discipline and Self-Control in High School', 
           content: '<p>Building discipline is crucial for academic success. Learn about setting goals, creating routines, and staying motivated.</p>', 
-          image: 'https://source.unsplash.com/600x400/?discipline', 
-          url: 'https://example.com/discipline'
+          image: './images/discipline.png', 
+          url: './images/discipline.png'
         },
         { 
           title: 'Dealing with Distractions', 
           content: '<p>In a world full of distractions, staying focused can be challenging. Explore techniques to minimize distractions and boost concentration.</p>', 
-          image: 'https://source.unsplash.com/600x400/?distractions', 
-          url: 'https://example.com/dealing-with-distractions'
+          image: './images/distraction.jpg', 
+          url: './images/distraction.jpg'
         }
       ]
     }
