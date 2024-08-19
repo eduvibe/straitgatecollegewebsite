@@ -42,7 +42,7 @@
 
     .nav-links a {
       text-decoration: none;
-      color: #b4030f; /* Sets the color for nav links */
+      color: #b4030f!important; /* Sets the color for nav links */
       font-weight: 500;
       font-size: 16px; /* Adjust font size for better readability */
     }
@@ -50,7 +50,10 @@
     .nav-links a.active {
       font-weight: bold;
     }
-
+.main-container{
+  margin-top: 4rem!important;
+  margin-inline: 2rem;
+}
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -150,7 +153,7 @@
   <div id="app">
     <v-app>
       <!-- App Bar -->
-      <v-app-bar app color="#fff" dark>
+      <v-app-bar app color="#fff" dark :color="darkTheme ? 'black darken-6' : 'white'">
         <v-toolbar-title>
           <img src="/images/sgclogo.png" alt="Straitgate College Logo" height="50">
         </v-toolbar-title>
@@ -158,7 +161,6 @@
         <v-toolbar-items>
           <ul class="nav-links">
             <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="#events">Events Gallery</a></li>
             <li><a href="/blog.html">Blog</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -220,14 +222,14 @@
             'images/picture7.jpg',
             'images/picture8.jpg',
             'images/picture9.jpg',
-            'images/picture10.jpeg',
-            'images/picture11.jpeg',
-            'images/picture12.jpeg',
-            'images/picture13.jpeg',
-            'images/picture14.jpeg',
-            'images/picture15.jpeg',
-            'images/picture16.jpeg',
-            'images/picture17.jpeg',  
+            'images/picture10.jpg',
+            'images/picture11.jpg',
+            'images/picture12.jpg',
+            'images/picture13.jpg',
+            'images/picture14.jpg',
+            'images/picture15.jpg',
+            'images/picture16.jpg',
+            'images/picture17.jpg',  
           ],
           currentPage: 0,
           imagesPerPage: 8,
