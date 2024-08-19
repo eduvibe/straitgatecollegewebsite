@@ -3,196 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>Admission</title>
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        .section {
-            padding: 40px 20px;
-            text-align: center;
-        }
-        .contact-section {
-            background-color: #f4f4f4;
-        }
-
-        /* Main Card Styles */
-        .main-card {
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 600px;
-        }
-
-        /* Form Styles */
-        #uniqueContactForm {
-            display: none;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        #uniqueContactForm label {
-            display: block;
-            margin: 10px 0 5px;
-            font-weight: bold;
-        }
-        #uniqueContactForm input, #uniqueContactForm textarea {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin: 5px 0 20px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        #uniqueContactForm button {
-            background-color: #b4030f;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1em;
-        }
-        #uniqueContactForm button:hover {
-            background-color: #a3020c;
-        }
-
-        /* Download/Upload Card Styles */
-        .download-upload-card {
-            display: none;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 600px;
-            text-align: left;
-        }
-        .download-upload-card a {
-            text-decoration: none;
-            color: #b4030f;
-            margin: 10px 0;
-            display: inline-block;
-        }
-        .download-upload-card a:hover {
-            color: #a3020c;
-        }
-        .download-upload-card input[type="file"] {
-            display: block;
-            margin-top: 10px;
-        }
-
-        /* Button Styles */
-        .application-method button {
-            background-color: #b4030f;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1em;
-            margin: 10px;
-        }
-        .application-method button:hover {
-            background-color: #a3020c;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 600px) {
-            .phone-numbers {
-                display: block;
-            }
-            .phone-numbers .phone-number {
-                flex: none;
-                margin: 10px 0;
-            }
-        }
-    </style>
+<link rel="stylesheet" href="/css/form.css">
+<link rel="stylesheet" href="/css/reponsiveness.css">
 </head>
 <body>
-    <section id="contact-us" class="section contact-section">
-        <h1>Contact Us</h1>
+ 
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="/images/sgclogo.png" alt="Straitgate College Logo">
+                    <span>Straitgate College</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/index.html" class="active">Home</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="/gallery.html">Events Gallery</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    
+                </ul>
+                
+                <div class="menu-icon">
+                    <span class="material-icons">menu</span>
+                </div>
+                <div class="close-icon">
+                    <span class="material-icons">close</span>
+                </div>
+            </nav>
+        </header>
+        <section id="admission" class="section">
+        <h1>Admission</h1>
 
-        <div class="main-card">
-            <h2>Application Options</h2>
-            <div class="application-method">
-                <button onclick="showForm('online')">Fill Online</button>
-                <button onclick="showForm('offline')">Print and Fill Offline</button>
+        <div class="grid-layout">
+            <!-- Left Column: Forms -->
+            <div class="grid-item">
+                <h2>Application Options</h2>
+                <div class="application-method">
+                    <button onclick="showForm('online')">Apply Online</button>
+                    <button onclick="showForm('offline')">Download and Apply Offline</button>
+                </div>
+
+                <div id="onlineForm" class="form-container">
+                    <h2>Online Application Form</h2>
+                    <form action="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/formResponse" method="POST">
+                        <label for="applicantName">Full Name:</label>
+                        <input type="text" id="applicantName" name="entry.1234567890" required>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="entry.0987654321" required>
+
+                        <label for="phoneNumber">Phone Number:</label>
+                        <input type="tel" id="phoneNumber" name="entry.1122334455" required>
+
+                        <label for="address">Address:</label>
+                        <textarea id="address" name="entry.9988776655" required></textarea>
+
+                        <label for="previousSchool">Previous School (if applicable):</label>
+                        <input type="text" id="previousSchool" name="entry.5544332211">
+
+                        <button type="submit">Submit Application</button>
+                    </form>
+                </div>
+
+                <div id="offlineForm" class="form-container">
+                    <h2>Download Offline Application Form</h2>
+                    <a href="YOUR_FORM_DOWNLOAD_LINK" download>Download the Form</a>
+                    <p>Once you have filled out the form, please upload it here:</p>
+                    <input type="file" id="fileUpload" name="fileUpload">
+                    <button type="submit">Upload Completed Form</button>
+                </div>
             </div>
-        </div>
 
-        <div id="uniqueContactForm" class="main-card">
-            <h2>Fill Online</h2>
-            <form action="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/formResponse" method="POST">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="entry.1234567890" required>
+            <!-- Right Column: Contact & Map -->
+            <div class="grid-item">
+                <div class="card">
+                    <h2>Contact Details</h2>
+                    <div class="phone-numbers">
+                        <div class="phone-number"><p><span class="phone">Phone:</span> +234 801 234 5678</p></div>
+                        <div class="phone-number"><p><span class="phone">Phone:</span> +234 802 345 6789</p></div>
+                        <div class="phone-number"><p><span class="phone">Phone:</span> +234 803 456 7890</p></div>
+                    </div>
+                    <p><i class="fas fa-home"></i> Address: Road E6, Forthright Gardens Estate Magboro, Ogun State, Nigeria</p>
+                </div>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="entry.0987654321" required>
+                <div class="card">
+                    <h2>Find Us On Google Maps</h2>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15523.883069314005!2d3.4031591927171315!3d6.646457738809694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf4d0d72c39a5%3A0xf16ecbf518c9d1c3!2sRoad%20E6%2C%20Forthright%20Gardens%20Estate%2C%20Magboro%2C%20Ogun%20State%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1633561248655!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
 
-                <label for="message">Message:</label>
-                <textarea id="message" name="entry.1122334455" required></textarea>
-
-                <button type="submit">Send Message</button>
-            </form>
-            <a href="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/viewform" target="_blank">Download Filled Form (PDF)</a>
-        </div>
-
-        <div id="downloadUploadCard" class="download-upload-card">
-            <h2>Print and Fill Offline</h2>
-            <a href="YOUR_FORM_DOWNLOAD_LINK" download>Download the Form</a>
-            <p>Once you have filled out the form, please upload it here:</p>
-            <input type="file" id="fileUpload" name="fileUpload">
-            <button type="submit">Upload Form</button>
-        </div>
-
-        <div class="card">
-            <h2>Contact Details</h2>
-            <div class="phone-numbers">
-                <div class="phone-number"><p><span class="phone">Phone:</span> +234 801 234 5678</p></div>
-                <div class="phone-number"><p><span class="phone">Phone:</span> +234 802 345 6789</p></div>
-                <div class="phone-number"><p><span class="phone">Phone:</span> +234 803 456 7890</p></div>
-            </div>
-            <p><i class="fas fa-home"></i> Address: Road E6, Forthright Gardens Estate Magboro, Ogun State, Nigeria</p>
-        </div>
-
-        <div class="card">
-            <h2>Find Us On Google Maps</h2>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15523.883069314005!2d3.4031591927171315!3d6.646457738809694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf4d0d72c39a5%3A0xf16ecbf518c9d1c3!2sRoad%20E6%2C%20Forthright%20Gardens%20Estate%2C%20Magboro%2C%20Ogun%20State%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1633561248655!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>Follow Us</h2>
-            <div class="social-media">
-                <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <div class="card">
+                    <h2>Follow Us</h2>
+                    <div class="social-media">
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <script>
         function showForm(method) {
+            document.getElementById('onlineForm').classList.remove('active');
+            document.getElementById('offlineForm').classList.remove('active');
             if (method === 'online') {
-                document.getElementById('uniqueContactForm').style.display = 'block';
-                document.getElementById('downloadUploadCard').style.display = 'none';
+                document.getElementById('onlineForm').classList.add('active');
             } else if (method === 'offline') {
-                document.getElementById('uniqueContactForm').style.display = 'none';
-                document.getElementById('downloadUploadCard').style.display = 'block';
+                document.getElementById('offlineForm').classList.add('active');
             }
         }
     </script>
+    <script src="/js/app.js"></script>
 </body>
 </html>
